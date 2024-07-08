@@ -1,0 +1,32 @@
+<!-- inventory_detail.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Detail</title>
+</head>
+<body>
+    <h1>{{ inventory.name }}</h1>
+    <h2>Cell Configurations</h2>
+    <ul>
+        {% for config in cell_configurations %}
+            <li>{{ config.label }} - {{ config.get_cell_type_display }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Inventory Elements</h2>
+    <ul>
+        {% for element in elements %}
+            <li>{{ element.label }}</li>
+            <ul>
+                {% for cell in element.cells.all %}
+                    <li>{{ cell.configuration.label }}: {{ cell.value_text }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'cell_config_create' inventory.id %}">Add Cell Configuration</a>
+    <a href="{% url 'element_create' inventory.id %}">Add Inventory Element</a>
+</body>
+</html>

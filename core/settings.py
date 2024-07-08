@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentication",
     "enterprise",
+    "inventory",
 ]
 
 AUTH_USER_MODEL = "authentication.CustomUser"

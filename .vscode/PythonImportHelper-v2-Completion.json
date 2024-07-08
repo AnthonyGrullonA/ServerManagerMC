@@ -98,6 +98,14 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -106,11 +114,27 @@
         "documentation": {}
     },
     {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
         "isExtraImport": true,
-        "detail": "django.contrib",
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -314,6 +338,22 @@
         "documentation": {}
     },
     {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -384,6 +424,22 @@
         "description": "authentication",
         "isExtraImport": true,
         "detail": "authentication",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "View",
+        "importPath": "django.views",
+        "description": "django.views",
+        "isExtraImport": true,
+        "detail": "django.views",
         "documentation": {}
     },
     {
@@ -516,7 +572,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"authentication\",\n    \"enterprise\",\n]",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"authentication\",\n    \"enterprise\",\n    \"inventory\",",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -836,6 +892,60 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0001_initial",
+        "description": "inventory.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='FieldType',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=255)),",
+        "detail": "inventory.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0002_remove_fieldvalue_field_type_and_more",
+        "description": "inventory.migrations.0002_remove_fieldvalue_field_type_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0001_initial'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='fieldvalue',\n            name='field_type',\n        ),\n        migrations.RemoveField(",
+        "detail": "inventory.migrations.0002_remove_fieldvalue_field_type_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "CellInline",
+        "kind": 6,
+        "importPath": "inventory.admin",
+        "description": "inventory.admin",
+        "peekOfCode": "class CellInline(admin.TabularInline):\n    model = Cell\n    extra = 0\nclass InventoryElementInline(admin.TabularInline):\n    model = InventoryElement\n    extra = 0\nclass InventoryAdmin(admin.ModelAdmin):\n    inlines = [\n        InventoryElementInline,\n    ]",
+        "detail": "inventory.admin",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryElementInline",
+        "kind": 6,
+        "importPath": "inventory.admin",
+        "description": "inventory.admin",
+        "peekOfCode": "class InventoryElementInline(admin.TabularInline):\n    model = InventoryElement\n    extra = 0\nclass InventoryAdmin(admin.ModelAdmin):\n    inlines = [\n        InventoryElementInline,\n    ]\nclass CellConfigurationAdmin(admin.ModelAdmin):\n    inlines = [\n        CellInline,",
+        "detail": "inventory.admin",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryAdmin",
+        "kind": 6,
+        "importPath": "inventory.admin",
+        "description": "inventory.admin",
+        "peekOfCode": "class InventoryAdmin(admin.ModelAdmin):\n    inlines = [\n        InventoryElementInline,\n    ]\nclass CellConfigurationAdmin(admin.ModelAdmin):\n    inlines = [\n        CellInline,\n    ]\nadmin.site.register(Inventory, InventoryAdmin)\nadmin.site.register(CellConfiguration, CellConfigurationAdmin)",
+        "detail": "inventory.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CellConfigurationAdmin",
+        "kind": 6,
+        "importPath": "inventory.admin",
+        "description": "inventory.admin",
+        "peekOfCode": "class CellConfigurationAdmin(admin.ModelAdmin):\n    inlines = [\n        CellInline,\n    ]\nadmin.site.register(Inventory, InventoryAdmin)\nadmin.site.register(CellConfiguration, CellConfigurationAdmin)\nadmin.site.register(InventoryElement)\nadmin.site.register(Cell)",
+        "detail": "inventory.admin",
+        "documentation": {}
+    },
+    {
         "label": "InventoryConfig",
         "kind": 6,
         "importPath": "inventory.apps",
@@ -845,12 +955,102 @@
         "documentation": {}
     },
     {
+        "label": "InventoryForm",
+        "kind": 6,
+        "importPath": "inventory.forms",
+        "description": "inventory.forms",
+        "peekOfCode": "class InventoryForm(forms.ModelForm):\n    class Meta:\n        model = Inventory\n        fields = ['name', 'description']\nclass CellConfigurationForm(forms.ModelForm):\n    class Meta:\n        model = CellConfiguration\n        fields = ['label', 'cell_type']",
+        "detail": "inventory.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CellConfigurationForm",
+        "kind": 6,
+        "importPath": "inventory.forms",
+        "description": "inventory.forms",
+        "peekOfCode": "class CellConfigurationForm(forms.ModelForm):\n    class Meta:\n        model = CellConfiguration\n        fields = ['label', 'cell_type']",
+        "detail": "inventory.forms",
+        "documentation": {}
+    },
+    {
+        "label": "Inventory",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Inventory(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass CellConfiguration(models.Model):\n    TYPE_CHOICES = [\n        ('TEXT', 'Text'),\n        ('NUMBER', 'Number'),\n        ('TASK_COMPLETED', 'Task Completed'),",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "CellConfiguration",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class CellConfiguration(models.Model):\n    TYPE_CHOICES = [\n        ('TEXT', 'Text'),\n        ('NUMBER', 'Number'),\n        ('TASK_COMPLETED', 'Task Completed'),\n        ('DISPLAY_BOX', 'Display Box'),\n    ]\n    inventory = models.ForeignKey(Inventory, related_name='cell_configurations', on_delete=models.CASCADE)\n    label = models.CharField(max_length=100)\n    cell_type = models.CharField(max_length=20, choices=TYPE_CHOICES)",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryElement",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class InventoryElement(models.Model):\n    inventory = models.ForeignKey(Inventory, related_name='elements', on_delete=models.CASCADE)\n    label = models.CharField(max_length=100)\n    def __str__(self):\n        return self.label\nclass Cell(models.Model):\n    element = models.ForeignKey(InventoryElement, related_name='cells', on_delete=models.CASCADE)\n    configuration = models.ForeignKey(CellConfiguration, on_delete=models.CASCADE)\n    value_text = models.TextField(blank=True, null=True)\n    value_number = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Cell",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Cell(models.Model):\n    element = models.ForeignKey(InventoryElement, related_name='cells', on_delete=models.CASCADE)\n    configuration = models.ForeignKey(CellConfiguration, on_delete=models.CASCADE)\n    value_text = models.TextField(blank=True, null=True)\n    value_number = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)\n    value_boolean = models.BooleanField(default=False)\n    value_datetime = models.DateTimeField(blank=True, null=True)\n    def __str__(self):\n        return f\"{self.configuration.label} - {self.element.label}\"",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "inventory.urls",
         "description": "inventory.urls",
-        "peekOfCode": "urlpatterns = [\n]",
+        "peekOfCode": "urlpatterns = [\n    path('inventory/new/', InventoryCreateView.as_view(), name='inventory_create'),\n    path('inventory/<int:pk>/', InventoryDetailView.as_view(), name='inventory_detail'),\n    path('inventory/<int:inventory_id>/cell/new/', CellConfigurationCreateView.as_view(), name='cell_config_create'),\n    path('inventory/<int:inventory_id>/element/new/', InventoryElementCreateView.as_view(), name='element_create'),\n]",
         "detail": "inventory.urls",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryCreateView",
+        "kind": 6,
+        "importPath": "inventory.views",
+        "description": "inventory.views",
+        "peekOfCode": "class InventoryCreateView(View):\n    def get(self, request):\n        inventory_form = InventoryForm()\n        return render(request, 'inventory/inventory_create.html', {\n            'inventory_form': inventory_form,\n        })\n    def post(self, request):\n        inventory_form = InventoryForm(request.POST)\n        if inventory_form.is_valid():\n            inventory = inventory_form.save()",
+        "detail": "inventory.views",
+        "documentation": {}
+    },
+    {
+        "label": "CellConfigurationCreateView",
+        "kind": 6,
+        "importPath": "inventory.views",
+        "description": "inventory.views",
+        "peekOfCode": "class CellConfigurationCreateView(View):\n    def get(self, request, inventory_id):\n        inventory = get_object_or_404(Inventory, pk=inventory_id)\n        cell_config_form = CellConfigurationForm()\n        return render(request, 'inventory/cell_configuration_create.html', {\n            'inventory': inventory,\n            'cell_config_form': cell_config_form,\n        })\n    def post(self, request, inventory_id):\n        inventory = get_object_or_404(Inventory, pk=inventory_id)",
+        "detail": "inventory.views",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryDetailView",
+        "kind": 6,
+        "importPath": "inventory.views",
+        "description": "inventory.views",
+        "peekOfCode": "class InventoryDetailView(View):\n    def get(self, request, pk):\n        inventory = get_object_or_404(Inventory, pk=pk)\n        cell_configurations = inventory.cell_configurations.all()\n        elements = inventory.elements.all()\n        return render(request, 'inventory/inventory_detail.html', {\n            'inventory': inventory,\n            'cell_configurations': cell_configurations,\n            'elements': elements,\n        })",
+        "detail": "inventory.views",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryElementCreateView",
+        "kind": 6,
+        "importPath": "inventory.views",
+        "description": "inventory.views",
+        "peekOfCode": "class InventoryElementCreateView(View):\n    def get(self, request, inventory_id):\n        inventory = get_object_or_404(Inventory, pk=inventory_id)\n        return render(request, 'inventory/element_create.html', {\n            'inventory': inventory,\n        })\n    def post(self, request, inventory_id):\n        inventory = get_object_or_404(Inventory, pk=inventory_id)\n        label = request.POST.get('label')\n        if label:",
+        "detail": "inventory.views",
         "documentation": {}
     },
     {

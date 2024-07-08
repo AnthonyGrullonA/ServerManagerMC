@@ -1,0 +1,16 @@
+<!-- cell_configuration_create.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Cell Configuration</title>
+</head>
+<body>
+    <h1>Create Cell Configuration</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ cell_config_form.as_p }}
+        <button type="submit">Create Configuration</button>
+    </form>
+</body>
+</html>

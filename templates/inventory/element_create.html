@@ -1,0 +1,19 @@
+<!-- inventory/element_create.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Inventory Element</title>
+</head>
+<body>
+    <h2>Create Inventory Element</h2>
+    <form method="post" action="{% url 'element_create' inventory.id %}">
+        {% csrf_token %}
+        <label for="id_label">Label:</label>
+        <input type="text" id="id_label" name="label" required>
+        <br><br>
+        <button type="submit">Create Element</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- inventory_create.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Inventory</title>
+</head>
+<body>
+    <h1>Create Inventory</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ inventory_form.as_p }}
+        <button type="submit">Create Inventory</button>
+    </form>
+</body>
+</html>
